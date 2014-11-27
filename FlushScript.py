@@ -3,12 +3,23 @@ __author__ = 'yer'
 import re
 import requests
 
-def flush301(keyword):
-    res = requests.get("http://www.zhongsou.net/%s" % keyword)
+def flush301(keywords):
+    res = requests.get("http://www.zhongsou.net/%s" % keywords)
     res_data = res.content
-    print res_data
+    keyword =  re.findall(r'g_keyword = ".*"', res_data)[0]
+    pageid =  re.findall(r'g_curPageNum = .*;', res_data)[0]
+    ig_id =  re.findall(r'g_owner=".*"', res_data)[0]
+    # print res_data
+    print keyword,pageid,ig_id
+    print keyword.split('"')[1]
+    print pageid.split(' ')[2][0:-1]
+    print ig_id.split('"')[1]
+    # print "keyword:"+keyword
+    # print "pageid:"+pageid
+    # print "ig_id:"+ig_id
 
 if __name__=="__main__":
-    flush301(u"小兔子乖乖")
+    keywords = raw_input("请输入门户词：\n")
+    flush301(keywords)
 
 
