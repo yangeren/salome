@@ -1,0 +1,82 @@
+host:
+    ip00:
+        192.168.1.1
+    ip01:
+        one: 192.168.1.2
+        two: 192.168.1.254
+soft:
+    apache: 2.2
+    mysql: 5.2
+    php:   5.3
+
+----
+
+keyword:
+    小兔子乖乖,
+    丛莱绿茶,
+ip:
+    192.168.31.218
+
+#
+#系统：ubuntu1404、python:2.7
+#
+#    解析yaml文件要先安装pyyaml,可以直接用sudo pip  install  pyyaml 安装yaml模块；
+#
+#    t.yaml文件内容:隔距为2个空格或4个空格
+#
+#
+#t.yaml 10L, 143C                            1,1           All
+#
+#host:
+#    ip00:
+#        192.168.1.1
+#    ip01:
+#        one: 192.168.1.2
+#        two: 192.168.1.254
+#soft:
+#    apache: 2.2
+#    mysql: 5.2
+#    php:   5.3
+#
+#3.解析：
+#In [160]: import  yaml               #倒入模块
+#In [161]: s=yaml.load(file('t.yaml')) #加载t.yaml配置文件
+#In [162]: print s['host']['ip00'][:]
+#192.168.1.1
+#
+#In [163]: print s['host']['ip00']
+#192.168.1.1
+#
+#In [164]: print s['host']
+#{'ip01': {'two': '192.168.1.254', 'one': '192.168.1.2'},
+# 'ip00': '192.168.1.1'}
+#
+#In [165]: print s
+#{'host': {'ip01': {'two': '192.168.1.254', 'one': '192.168.1.2'},
+#'ip00': '192.168.1.1'}, 'soft': {'apache': 2.2, 'php': 5.3, 'mysql': 5.2}}
+#
+#In [166]: print s['host']['ip00']
+#192.168.1.1
+#
+#In [167]: print s['host']['ip01']
+#{'two': '192.168.1.254', 'one': '192.168.1.2'}
+#
+#In [168]: print s['host']['ip01']['one']
+#192.168.1.2
+#
+#In [169]: print s['soft']
+#{'apache': 2.2, 'php': 5.3, 'mysql': 5.2}
+#
+#n [171]: print s['soft']['apache']
+#2.2
+#
+#In [172]: print s['soft']['php']
+#5.3
+#
+#4.写yaml配置文件：
+#file='kkk.yaml'
+#data={'host': {'ip01': {'two': '192.168.1.254', 'one': '192.168.1.2'}, 'ip00': '192.168.1.1'}, 'soft': {'apache': 2.2, 'php': 5.3, 'mysql': 5.2}}
+#
+#f=open(file,'w')
+#yaml.dump(data,f)
+#f.close()

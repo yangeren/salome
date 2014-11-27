@@ -2,6 +2,7 @@ __author__ = 'yer'
 #*--coding:utf-8--*
 import re
 import requests
+import yaml
 
 def flush301(keywords):
     res = requests.get("http://www.zhongsou.net/%s" % keywords)
@@ -18,8 +19,20 @@ def flush301(keywords):
     # print "pageid:"+pageid
     # print "ig_id:"+ig_id
 
+def readyml():
+    s = yaml.load(file('keyword.yml'))
+    a = s['keyword']
+    print a
+    print a.split(' ')
+    for x in a.split(' '):
+        print x
+    print type(a)
+    print type(s['host']['ip01'])
+
+
 if __name__=="__main__":
-    keywords = raw_input("请输入门户词：\n")
-    flush301(keywords)
+    # keywords = raw_input("请输入门户词：\n")
+    # flush301(keywords)
+    readyml()
 
 
