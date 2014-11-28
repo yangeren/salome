@@ -12,3 +12,30 @@ keyword:
     小兔子乖乖
     丛莱绿茶
     这个行业我专用
+ip:
+    nginx:
+        202.108.33.225
+        202.108.33.241
+        103.29.134.99
+        103.29.134.100
+    122:
+        202.108.1.122
+    np:
+        202.108.33.233
+        202.108.33.224
+        202.108.33.176
+        202.108.33.171
+        103.29.134.108
+        103.29.134.109
+url:
+    b2b:
+        pageflush:
+            http://www.zhongsou.net/np/ssupdgen.jsp
+        ipflush:
+            http://202.108.33.233/np/ipfresh?st=update
+            http://202.108.33.224/np/ipfresh?st=update
+            http://202.108.33.176/np/ipfresh?st=update
+            http://202.108.33.171/np/ipfresh?st=update
+            http://202.108.1.122/np/ipfresh?st=update
+            http://103.29.134.108/np/ipfresh?st=update
+            http://103.29.134.109/np/ipfresh?st=update
