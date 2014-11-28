@@ -17,7 +17,8 @@ def flush301(keywords, ip, flushurl):
         keyword_dict = (keyword.split('"')[1])
         pageid_dict = (pageid.split(' ')[2][0:-1])
         ig_id_dict = (ig_id.split('"')[1])
-        print keyword_dict, ig_id_dict, pageid_dict, power_dict
+        # print keyword_dict, ig_id_dict, pageid_dict, power_dict
+        print keyword_dict
         for x in ip:
             data = {
                 "ip" : x,
@@ -31,8 +32,21 @@ def flush301(keywords, ip, flushurl):
         # po = requests.post(flush_url, data=ss)
         # print po.content
     except:
+        print "\n\n------未刷新-------"
         print u"没有这个门户词：" + keywords
+        print "-------------------\n"
 
+#刷新IP接口，并返回值
+
+def fluship(ip):
+    print "------IP地址接口刷新开始：------\n"
+    for x in ip:
+        res = requests.get(x)
+        print x +"--->---" + res.content
+    print "------IP地址接口刷新完毕------"
+
+
+#从yml文件中取数据
 def readyml():
     readres = yaml.load(file('keyword.yml'))
     keyword = readres['keyword'].split(' ')
@@ -44,5 +58,7 @@ def readyml():
 
 if __name__=="__main__":
     keyword, np, pageflush, ipflush = readyml()
+    print "------以下门户词首页静态页刷新完成：------\n"
     for x in keyword:
         flush301(x, ipflush, pageflush)
+    fluship(ipflush)
