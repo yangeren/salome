@@ -46,5 +46,3 @@ if __name__=="__main__":
     keyword, np, pageflush, ipflush = readyml()
     for x in keyword:
         flush301(x, ipflush, pageflush)
-
-
