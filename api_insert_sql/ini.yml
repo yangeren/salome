@@ -1,0 +1,43 @@
+api:
+    http://202.108.1.121/space/interface/searchInfosByKw.php
+    http://202.108.1.121/space/interface/syh_binding.php
+    http://202.108.1.121/space/interface/syh_card.php
+    http://202.108.1.121/space/interface/syh_checkauth.php
+    http://202.108.1.121/space/interface/syh_getSrcforApp.php
+    http://202.108.1.121/space/interface/syh_join.php
+    http://202.108.1.121/space/interface/ydcp_getAdvert.php
+    http://202.108.1.121/space/interface/ydcp_getAdvertList.php
+    http://202.108.1.121/space/interface/ydcp_getAlbums.php
+    http://202.108.1.121/space/interface/ydcp_getBranch.php
+    http://202.108.1.121/space/interface/ydcp_getCate.php
+    http://202.108.1.121/space/interface/getInfoById.php
+    http://202.108.1.121/space/interface/ydcp_getContact.php
+    http://202.108.1.121/space/interface/ydcp_getCpInfo.php
+    http://202.108.1.121/space/interface/ydcp_getCySections.php
+    http://202.108.1.121/space/interface/ydcp_getIndexset.php
+    http://202.108.1.121/space/interface/ydcp_getLeftTree.php
+    http://202.108.1.121/space/interface/ydcp_getLeftTreeData.php
+    http://202.108.1.121/space/interface/ydcp_getPics.php
+    http://202.108.1.121/space/interface/ydcp_getResource.php
+    http://202.108.1.121/space/interface/ydcp_getResourceList.php
+    http://202.108.1.121/space/interface/ydcp_getSections.php
+    http://202.108.1.121/space/interface/ydcp_getShop.php
+    http://202.108.1.121/space/interface/ydcp_getShopCategory.php
+    http://202.108.1.121/space/interface/ydcp_getStartInfo.php
+    http://202.108.1.121/space/interface/ydcp_getSyhInfo.php
+    http://202.108.1.121/space/interface/ydcp_getUsers.php
+    http://202.108.1.121/space/interface/ydcp_homepagedata.php
+    http://202.108.1.121/space/interface/ydcp_nine.php
+    http://202.108.1.121/space/interface/ydcp_Products.php
+    http://202.108.1.121/space/interface/ydcp_searchNews.php
+    http://202.108.1.121/space/interface/ydcp_searchNewsBySec.php
+fillter:
+    $getfilter="'|(and|or)\\b.+?(>|<|=|in|like)|\\/\\*.+?\\*\\/|<\\s*script\\b|\\bEXEC\\b|UNION.+?SELECT|UPDATE.+?SET|INSERT\\s+INTO.+?VALUES|(SELECT|DELETE).+?FROM|(CREATE|ALTER|DROP|TRUNCATE)\\s+(TABLE|DATABASE)";
+    $postfilter="\\b(and|or)\\b.{1,6}?(=|>|<|\\bin\\b|\\blike\\b)|\\/\\*.+?\\*\\/|<\\s*script\\b|\\bEXEC\\b|UNION.+?SELECT|UPDATE.+?SET|INSERT\\s+INTO.+?VALUES|(SELECT|DELETE).+?FROM|(CREATE|ALTER|DROP|TRUNCATE)\\s+(TABLE|DATABASE)";
+
+    http://202.108.1.121/space/interface/ydcp_getAdvert.php?kw=%E4%B8%9B%E8%8E%B1%E7%BB%BF%E8%8C%B6&id=select * from ydcp_users
+sql:
+    select * from information where stuff;
+    <script>;
+    EXEC;
+    INSERT * from information;

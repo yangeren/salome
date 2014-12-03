@@ -12,6 +12,8 @@ keyword:
     小兔子乖乖
     丛莱绿茶
     这个行业我专用
+    物流信息行业
+    广东省造纸协会
 ip:
     nginx:
         202.108.33.225
@@ -31,6 +33,9 @@ url:
     b2b:
         pageflush:
             http://www.zhongsou.net/np/ssupdgen.jsp
+        domain_keyword: http://202.108.1.122/np/getKeyword     #参数?url=
+        ig_flush: http://202.108.1.122/np/setMemPortalMSG  #参数?igId=msw3       
+        domain_flush: http://202.108.1.122/space/testmemcache.php   #参数?url=kwByDomain_'+x+'&type=1 加type为清memcache
         ipflush:
             http://202.108.33.233/np/ipfresh?st=update
             http://202.108.33.224/np/ipfresh?st=update
