@@ -29,8 +29,8 @@ def flush301(keywords, ip, flushurl):
                 #"press" : "ok"
             }
 	    # print data
-            #po = requests.post(flushurl, data=json.dumps(data))
-            po = requests.get(flushurl, params=data)
+            po = requests.post(flushurl, data=data)
+            # po = requests.get(flushurl, params=data)
             print u"|%s刷新静态页:   " % x  + str(po.status_code)
         print '------------------------------'
             #print po.url

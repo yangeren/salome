@@ -34,10 +34,11 @@ api:
 fillter:
     $getfilter="'|(and|or)\\b.+?(>|<|=|in|like)|\\/\\*.+?\\*\\/|<\\s*script\\b|\\bEXEC\\b|UNION.+?SELECT|UPDATE.+?SET|INSERT\\s+INTO.+?VALUES|(SELECT|DELETE).+?FROM|(CREATE|ALTER|DROP|TRUNCATE)\\s+(TABLE|DATABASE)";
     $postfilter="\\b(and|or)\\b.{1,6}?(=|>|<|\\bin\\b|\\blike\\b)|\\/\\*.+?\\*\\/|<\\s*script\\b|\\bEXEC\\b|UNION.+?SELECT|UPDATE.+?SET|INSERT\\s+INTO.+?VALUES|(SELECT|DELETE).+?FROM|(CREATE|ALTER|DROP|TRUNCATE)\\s+(TABLE|DATABASE)";
-
     http://202.108.1.121/space/interface/ydcp_getAdvert.php?kw=%E4%B8%9B%E8%8E%B1%E7%BB%BF%E8%8C%B6&id=select * from ydcp_users
 sql:
     select * from information where stuff;
     <script>;
     EXEC;
-    INSERT * from information;
+    INSERT into information(id,title) values('1','biaoti');
+    update information set;
+    delete from information;
