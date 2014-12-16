@@ -46,16 +46,31 @@ def fluship(ipflush):
     print '------------------------------'
         
 def readyml():
-    readres = yaml.load(file('keyword.yml'))
+    readres = yaml.load(file('/home/hanz/PycharmProjects/salome/Flush/keyword.yml'))
     keyword = readres['keyword'].split(' ')
     np = readres['ip']['nginx'].split(' ')
     pageflush = readres['url']['b2b']['pageflush']
     ipflush = readres['url']['b2b']['ipflush'].split(' ')
-    return keyword, np, pageflush, ipflush
+    domainflush = readres['url']['needflush'].split(' ')
+    return keyword, np, pageflush, ipflush, domainflush
 
+def flushdomain(domainflush):
+    for x in domainflush:
+        print x
+        flushurl = 'http://202.108.1.122/np/getKeyword?url=%s' % x
+        s = requests.get(flushurl)
+        print s.content
 
 if __name__=="__main__":
-    keyword, np, pageflush, ipflush = readyml()
-    for x in keyword:
-        flush301(x, np, pageflush)
-    fluship(ipflush)
+    keyword, np, pageflush, ipflush, domainflush = readyml()
+    # for x in keyword:
+    #     flush301(x, np, pageflush)
+    # fluship(ipflush)
+    flushdomain(domainflush)
+
+
+
+
+# http://202.108.1.122/np/setMemPortalMSG?igId=msw3	msw3为ig号。
+# http://202.108.1.122/np/getKeyword?url=www.hrbonline.com.cn	查询多域名关联的关键词链接。
+# http://www.zhongsou.net/np/php?igId=xihongbin        门户权限串刷新

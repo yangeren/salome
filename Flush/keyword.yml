@@ -8,6 +8,12 @@ soft:
     apache: 2.2
     mysql: 5.2
     php:   5.3
+:list:
+    1: list1
+    2: list2
+member:
+    testc: 111111
+    whtest: 111111
 keyword:
     小兔子乖乖
     丛莱绿茶
@@ -51,3 +57,82 @@ url:
             http://202.108.1.122/np/ipfresh?st=update
             http://103.29.134.108/np/ipfresh?st=update
             http://103.29.134.109/np/ipfresh?st=update
+    needflush:
+        www.clgt.com
+        www.chinaqlw.com
+        www.hljshangdao.cn
+        www.zypco.com
+        www.rafscl.com
+        www.rujiajituan.com
+        www.hrbypx.com
+        www.hrbjxwsp.cn
+        www.jinghua-group.com
+        www.cyjtss.cn
+        www.jinqiaocaiyin.cn
+        www.sdny88.com
+        www.cqwufeng.com
+        www.beijingruntang.com
+        www.hengdaxs.com
+        www.zgkywzltw.com
+        www.maowenjun.com
+        www.hrbrhqd.cn
+        www.hljqgxh.com
+        www.hljyuxing.com
+        www.fyrngc.com
+        www.hrbmrsp.cn
+        www.hrbdinglong.cn
+        www.rgjkkj.com
+        www.hangecehua.com
+        www.yifanlaowu.cn
+        www.xuansesheying.com.cn
+        www.tyymqhg.cn
+        www.bbw678.com
+        www.gaoshuang1029.com
+        www.libai.com
+        www.gexinghuahy.com
+        www.xixi_luo.com
+        www.zxyys.com
+        www.gaoshuang1029.com
+        www.hlservice.com.cn
+        www.zgptw.com.cn
+        www.958ly.com
+        www.ny168.org
+        www.bjcre.com
+        www.gaoshuangmall.com
+        www.lidabai.com
+        www.bjyifuyuan.com
+        www.cptest.com
+        www.ruiqiu.net
+        jd.cfsbcn.com
+        www.cnljjgs.com
+        www.mcy948.com
+        www.hljmrnj.com
+        www.duoshengda.com
+        www.runheyjs.com
+        www.gexinghuazz.com
+        www.xinxin.com
+        www.13313644999.com
+        www.xm-hs.net
+        www.yiyanghudie.com
+        www.nmlj.cn
+        www.hljjunchen.com
+        www.xiyuanshiye.com
+        www.hrbzlsc.com
+        www.weidabl.com
+        www.weilailu.com.cn
+        www.bbglt.com
+        www.hrbydxh.com
+        www.weixinshichang.cn
+        www.afw365.com
+        www.zgtsfood.com
+        www.zgthmhw.com
+        www.clgt.mobi
+        www.xinxinxiangyin.com
+        www.xsfbkg.mobi
+        www.xiyuansuye.com
+        catickitchen.com
+        expohlj.com
+        dlhzw.cn
+        xshlmj.com
+        huadongheb.com
+        chinalhtx.com
