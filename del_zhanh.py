@@ -10,6 +10,7 @@ def chuansuo(ig_id):
     a.accept()
     dr.find_element_by_id('igNo').send_keys(ig_id)
     dr.find_element_by_id('del').click()
+    time.sleep(4)
     b = dr.switch_to_alert()
     b.accept()
 
@@ -26,6 +27,7 @@ def delzh(keyword):
             b = dr.switch_to_alert()
             b.accept()
             time.sleep(5)
+            print x
         except Exception, e:
             print(x,e)
     dr.close()
