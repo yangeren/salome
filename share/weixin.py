@@ -4,10 +4,10 @@ import urllib,urllib2,time,random,string,json,re,requests
 
 #即时取帐号token值作回传
 def gettoken():
-    	loginurl = 'http://api2.souyue.mobi/d3api2/user/login.groovy?vc=4.0.2&imei=9f46c1c4a8c3dabbd4b95cfeec31a4a6535ed3de&name=yangeren&password=3212088'
-        res = requests.get(loginurl)
-        resdata = res.json()['body']['token']
-        return resdata
+    loginurl = 'http://api2.souyue.mobi/d3api2/user/login.groovy?vc=4.0.2&imei=9f46c1c4a8c3dabbd4b95cfeec31a4a6535ed3de&name=yangeren&password=3212088'
+    res = requests.get(loginurl)
+    resdata = res.json()['body']['token']
+    return resdata
 
 #取搜悦新闻的srpid和url链接，分享参数用
 def srpid_url(news_url):
