@@ -21,15 +21,15 @@ for x in api_url.split(' '):
         try:
             res_get = requests.get(x, params=data)
             res_post = requests.post(x, data=data)
-            print(res_get.history,res_post.history)
-            if res_get.url != 'http://202.108.1.121/403.html':
+            # print(res_get.history,res_post.history)
+            if res_get.url != 'http://202.108.1.122/403.html':
             # if res_get.status_code == 500:
                 m += 1
                 print(y)
                 print(res_get.url)
                 print(res_get.status_code)
 
-            if res_post.url != 'http://202.108.1.121/403.html':
+            if res_post.url != 'http://202.108.1.122/403.html':
                 print(res_post.url)
                 print(res_post.history)
         except:
