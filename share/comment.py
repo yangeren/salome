@@ -6,6 +6,7 @@ import re
 import yaml
 import time
 
+#读配置文件setting.yaml
 def readyml():
     readdata = yaml.load(file('setting.yaml'))
     quanzi = readdata['quanzi']
@@ -15,7 +16,7 @@ def readyml():
     return quanzi, id, member
 
 
-
+#登陆帐号获取最新token
 def gettoken(username,password):
     loginurl = 'http://api2.souyue.mobi/d3api2/user/login.groovy'
     data = {
@@ -32,6 +33,7 @@ def gettoken(username,password):
         print login_res.json(),e
     return token
 
+#加入圈子
 def addin(token, interest_id):
     url = 'http://api2.souyue.mobi/d3api2/interest/interest.subscriber.groovy'
     data = {
@@ -43,6 +45,7 @@ def addin(token, interest_id):
     ms = requests.get(url, params=data)
     print ms.content
 
+#获取圈子资讯列表id
 def geturl(quanzi, id, token):
     url = 'http://api2.souyue.mobi/d3api2/webdata/homepage.news.groovy'
     data = {
@@ -63,6 +66,7 @@ def geturl(quanzi, id, token):
         interest_id.append(x['interest_id'])
     return news_id
 
+#提交评论
 def comment(content, token, id, interest_id):
     pl_url = 'http://api2.souyue.mobi/d3api2/interest/blog.save.groovy?vc=4.0.2'
     data = {
@@ -82,13 +86,16 @@ def comment(content, token, id, interest_id):
 if __name__=="__main__":
     quanzi, id, member = readyml()
     print member
+    #遍历配置文件中的圈子
     for m in quanzi:
         print m
         print quanzi[m]
+        #遍历配置文件中的用户
         for x in member:
             token = gettoken(x, member[x])
             addin(token, quanzi[m])
             news_id = geturl(m,quanzi[m],token)
+            #遍历圈子中的资讯
             for y in news_id:
                 print token, y, quanzi[m]
                 comment(u'顶顶顶顶顶顶顶', token, y, quanzi[m])
