@@ -10,10 +10,9 @@ import time
 def readyml():
     readdata = yaml.load(file('setting.yaml'))
     quanzi = readdata['quanzi']
-    id = readdata['srpid'].split(' ')
     member = readdata['member']
-    print quanzi, id, member
-    return quanzi, id, member
+    # print quanzi, member
+    return quanzi, member
 
 
 #登陆帐号获取最新token
@@ -32,6 +31,26 @@ def gettoken(username,password):
         print '获取token失败'
         print login_res.json(),e
     return token
+
+#查询我订阅的兴趣圈
+def myinterest(token):
+    myint_url = 'http://api2.souyue.mobi/d3api2/interest/interest.my.groovy'
+    data = {
+        'vc': '4.0.2',
+        'token': token
+    }
+    res = requests.get(myint_url, params=data)
+    quan_name = []
+    quan_id = []
+    mm = {}
+    for x in res.json()['body']:
+        # quan_name.append(x['name'])
+        # quan_id.append(x['id'])
+        mm[x['name']] = x['id']
+    print mm
+    return mm
+    # return quan_name, quan_id
+
 
 #加入圈子
 def addin(token, interest_id):
@@ -83,7 +102,7 @@ def comment(content, token, id, interest_id):
     pl = requests.post(pl_url, data=data)
     print pl.content
 
-if __name__=="__main__":
+def run():
     quanzi, id, member = readyml()
     print member
     #遍历配置文件中的圈子
@@ -100,11 +119,33 @@ if __name__=="__main__":
                 print token, y, quanzi[m]
                 comment(u'顶顶顶顶顶顶顶', token, y, quanzi[m])
                 time.sleep(5)
+
+def persion_comment():
+    token = gettoken('whtest','111111')
+    quanzi = myinterest(token)
+    print quanzi.items()
+    print len(quanzi)
+    for x in range(len(quanzi)):
+        print x
+    for m, n in quanzi.items():
+        print m,n
+
+    for j, k in enumerate(quanzi):
+        print j,k
+    for s in quanzi.items():
+
+        print quanzi.items().index(s)
+
+if __name__=="__main__":
+    persion_comment()
+
     # token = gettoken()
     # geturl()
     # comment(u'真心是好东西', '5e76493c-a698-48a6-8382-6e994fd47d3e', '1108130', '299')
 
 
+# 我的兴趣圈
+# http://api2.souyue.mobi/d3api2/interest/interest.my.groovy?vc=4.0.2&token=5e76493c-a698-48a6-8382-6e994fd47d3e
 # 加入该圈：
 # http://api2.souyue.mobi/d3api2/interest/interest.subscriber.groovy?vc=4.0.2&state=5&token=4b9be219-462e-4ce4-862e-70ff4fa52ae4&interest_ids=300
 

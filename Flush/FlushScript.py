@@ -8,17 +8,23 @@ import json
 def flush301(keywords, ip, flushurl):
     try:
         res = requests.get("http://www.zhongsou.net/%s" % keywords)
+        # res = requests.get("http://"+keywords, timeout=10)
         res_data = res.content
         powerstr = re.findall(r'g_widgetSerial=".*"', res_data)[0]
         keyword =  re.findall(r'g_keyword = ".*"', res_data)[0]
         pageid =  re.findall(r'g_curPageNum = .*;', res_data)[0]
         ig_id =  re.findall(r'g_owner=".*"', res_data)[0]
+        domain = re.findall(r'g_syshost=".*";', res_data)[0]
         power_dict = (powerstr.split('"')[1])
         keyword_dict = (keyword.split('"')[1])
         pageid_dict = (pageid.split(' ')[2][0:-1])
         ig_id_dict = (ig_id.split('"')[1])
+        # domain_dict = (domain.split("")[1])
+        flushjingtaiye = 'http://www.zhongsou.net/np/igdc?action=pagerelease&keyword=%s&pageid=%s' % (keyword_dict, pageid_dict)
+        flushjingtaiye_data = requests.get(flushjingtaiye)
         print '----------**********----------'
-        print '|' + keyword_dict, ig_id_dict, pageid_dict, power_dict
+        print flushjingtaiye_data.url
+        print '|' + keyword_dict, ig_id_dict, pageid_dict, domain, power_dict
         for x in ip:
             data = {
                 "ip" : x,
@@ -36,8 +42,8 @@ def flush301(keywords, ip, flushurl):
             #print po.url
         # po = requests.post(flush_url, data=ss)
         # print po.content
-    except:
-        print u"没有这个门户词：" + keywords
+    except Exception,e:
+        print u"没有这个门户词：" + keywords,e
 
 def fluship(ipflush):
     for m in ipflush:
@@ -56,14 +62,32 @@ def readyml():
 
 def flushdomain(domainflush):
     for x in domainflush:
-        print x
-        flushurl = 'http://202.108.1.122/np/getKeyword?url=%s' % x
+        flushmemcache = 'http://202.108.1.122/np/getKeyword?url=%s' % x
+
+        #此接口需要清两次域名，一次带www的，一次不带www的。
+        flushurl = 'http://202.108.1.122/space/testmemcache.php?url=kwByDomain_%s&type=1' % x
         s = requests.get(flushurl)
-        print s.content
+        m = requests.get(flushmemcache)
+        try:
+            aa = requests.get("http://"+x, timeout=10)
+            if 'http://image.zhongsou.com/image/notenew.gif' not in aa.content:
+                print x
+        except:
+            print "timeout"
+
+        # print x
+        # print m.content
+        # print s.content
+        # if "?xml" in s.content:
+        #     print x
+        #     print s.text
 
 if __name__=="__main__":
     keyword, np, pageflush, ipflush, domainflush = readyml()
-    # for x in keyword:
+    for x in keyword:
+        flush301(x, np, pageflush)
+    fluship(ipflush)
+    # for x in domainflush:
     #     flush301(x, np, pageflush)
     # fluship(ipflush)
     flushdomain(domainflush)
