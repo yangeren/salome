@@ -1,0 +1,13 @@
+admin:
+    username: admin
+    password: 123456
+player:
+    username: testandroid
+    password: '000000'
+
+url:
+    login: http://yuyueweijian.test.zae.zhongsou.com/user/login
+    add: http://yuyueweijian.test.zae.zhongsou.com/yywj/index
+
+road:
+    xuanchuantu: /home/hanz/Pictures/pp.png
