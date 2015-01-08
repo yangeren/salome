@@ -109,15 +109,3 @@ if __name__ == '__main__':
 
 
 
-"""
-import urllib
-import urllib2
-url ="http://www.XXXX.com/"
-header ={'User-Agent':'mozilla/5.0 (windows; U; windows NT 5.1; zh-cn)'}
-req=urllib2.Request(url,None,header)
-response = urllib2.urlopen(req)
-page = responese.read()
-soup = BeautifulSoup('',join(page))
-buycount = soup.findAll(attrs={'class':re.compile("totla$")})
-for i in buycount;
-"""

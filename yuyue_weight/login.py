@@ -2,9 +2,12 @@
 from selenium import webdriver
 import yaml
 import time
+from robobrowser import RoboBrowser
 
 dr = webdriver.Firefox()
 dr.maximize_window()
+source = RoboBrowser(history=True)
+
 
 def readdata(user):
     res = yaml.load(file('ini.yaml'))
@@ -17,11 +20,18 @@ def readdata(user):
 
 def login(url, username, password):
     dr.get(url)
-    dr.find_element_by_id('username').click()
-    dr.find_element_by_id('username').send_keys(username)
-    dr.find_element_by_id('password').click()
-    dr.find_element_by_id('password').send_keys(password)
-    dr.find_element_by_name('button').click()
+    #动态识别元素id
+    source.open(url)
+    ids = source.select('input')
+    username_id = str(ids[0].attrs['id'])
+    password_id = str(ids[1].attrs['id'])
+    button_id = str(ids[2].attrs['id'])
+    #页面输入
+    dr.find_element_by_id(username_id).click()
+    dr.find_element_by_id(username_id).send_keys(username)
+    dr.find_element_by_id(password_id).click()
+    dr.find_element_by_id(password_id).send_keys(password)
+    dr.find_element_by_name(button_id).click()
     time.sleep(2)
 
 #此方法后期可做元素遍历
@@ -49,6 +59,11 @@ def add_jj(img):
     # dr.find_elements_by_tag_name('select')[1].find_elements_by_tag_name('option')[1].click()
     dr.find_element_by_link_text(u'保存').click()
 
+def add_yyxx():
+    dr.find_element_by_link_text(u'预约信息').click()
+    dr.find_element_by_name('s_start').send_keys('2015-01-08')
+    dr.find_element_by_name('s_end').send_keys('2015-01-28')
+    dr.find_element_by_xpath('/html/body/div[4]/div/div[2]/div/div[2]/div[1]/div[2]/span[5]/input').click()
 
 
 
