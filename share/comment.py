@@ -11,8 +11,10 @@ def readyml():
     readdata = yaml.load(file('setting.yaml'))
     quanzi = readdata['quanzi']
     member = readdata['member']
-    # print quanzi, member
-    return quanzi, member
+    pinglun = readdata['comment']
+    print pinglun.split(' ')
+    # print type(pinglun)
+    return quanzi, member, pinglun
 
 
 #登陆帐号获取最新token
@@ -40,6 +42,7 @@ def myinterest(token):
         'token': token
     }
     res = requests.get(myint_url, params=data)
+    # print res.content
     quan_name = []
     quan_id = []
     mm = {}
@@ -47,6 +50,7 @@ def myinterest(token):
         # quan_name.append(x['name'])
         # quan_id.append(x['id'])
         mm[x['name']] = x['id']
+    # print '--------------------'
     print mm
     return mm
     # return quan_name, quan_id
@@ -62,7 +66,7 @@ def addin(token, interest_id):
         'interest_ids': interest_id
     }
     ms = requests.get(url, params=data)
-    print ms.content
+    # print ms.content
 
 #获取圈子资讯列表id
 def geturl(quanzi, id, token):
@@ -80,7 +84,7 @@ def geturl(quanzi, id, token):
     news_id = []
     interest_id = []
     for x in b:
-        print x['id'],x['interest_id']
+        # print x['id'],x['interest_id']
         news_id.append(x['id'])
         interest_id.append(x['interest_id'])
     return news_id
@@ -98,46 +102,57 @@ def comment(content, token, id, interest_id):
         "interest_id": interest_id,
         "title": ""
     }
-    print data
+    # print data
     pl = requests.post(pl_url, data=data)
-    print pl.content
+    # print pl.content
 
 def run():
-    quanzi, id, member = readyml()
-    print member
+    quanzi, member, pinglun= readyml()
+    import random
     #遍历配置文件中的圈子
     for m in quanzi:
-        print m
-        print quanzi[m]
+        # print m
+        # print quanzi[m]
         #遍历配置文件中的用户
         for x in member:
             token = gettoken(x, member[x])
             addin(token, quanzi[m])
             news_id = geturl(m,quanzi[m],token)
             #遍历圈子中的资讯
-            for y in news_id:
-                print token, y, quanzi[m]
-                comment(u'顶顶顶顶顶顶顶', token, y, quanzi[m])
-                time.sleep(5)
+            # for y in news_id:
+            #     print token, y, quanzi[m]
+            #     comment(u'顶，真心好东西，学习了！', token, y, quanzi[m])
+            #     time.sleep(5)
+            print random.choice(pinglun.split(' '))
+
+            print '----------'
+    print token
+            # comment(u'顶，真心好东西，学习了！', token, news_id[0], quanzi[m])
 
 def persion_comment():
-    token = gettoken('whtest','111111')
-    quanzi = myinterest(token)
-    print quanzi.items()
-    print len(quanzi)
-    for x in range(len(quanzi)):
-        print x
-    for m, n in quanzi.items():
-        print m,n
+    import random
+    quanzi, member, pinglun= readyml()
+    for x in member:
+        token = gettoken(x, member[x])
+        quanzi = myinterest(token)
+        for y in quanzi:
+            news_id = geturl(y,quanzi[y],token)
 
-    for j, k in enumerate(quanzi):
-        print j,k
-    for s in quanzi.items():
+            for x in xrange(5):
+                comment(pinglun.split(' '), token, id, quanzi[y])
 
-        print quanzi.items().index(s)
+    # for m, n in quanzi.items():
+    #     print m,n
+    #
+    # for j, k in enumerate(quanzi):
+    #     print j,k
+    # for s in quanzi.items():
+    #
+    #     print quanzi.items().index(s)
 
 if __name__=="__main__":
     persion_comment()
+    # run()
 
     # token = gettoken()
     # geturl()

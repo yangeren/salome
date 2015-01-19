@@ -24,22 +24,60 @@ document = """
 # for x,y in a.items():
 #     print x,y
 
-def comment(content, token, id, interest_id):
-    pl_url = 'http://api2.souyue.mobi/d3api2/interest/blog.save.groovy?vc=4.0.2'
-    data = {
-        "blog_id": "0",
-        "content": content,
-        "mblog_id": id,
-        "token": token,
-        "user_ids": "",
-        "interest_id": interest_id,
-        "title": ""
-    }
-    headers = {'User-Agent': '中搜搜悦 4.0.2 (iPhone; iPhone OS 8.1; zh_CN)'}
-    print data
-    # pl = requests.post(pl_url, data=data, headers=headers)
-    pl = requests.get(pl_url, params=data)
-    print pl.content
+# def comment(content, token, id, interest_id):
+#     pl_url = 'http://api2.souyue.mobi/d3api2/interest/blog.save.groovy?vc=4.0.2'
+#     data = {
+#         "blog_id": "0",
+#         "content": content,
+#         "mblog_id": id,
+#         "token": token,
+#         "user_ids": "",
+#         "interest_id": interest_id,
+#         "title": ""
+#     }
+#     headers = {'User-Agent': '中搜搜悦 4.0.2 (iPhone; iPhone OS 8.1; zh_CN)'}
+#     print data
+#     # pl = requests.post(pl_url, data=data, headers=headers)
+#     pl = requests.get(pl_url, params=data)
+#     print pl.content
+#
+# if __name__=="__main__":
+#     comment(u'真心是好东西', '5e76493c-a698-48a6-8382-6e994fd47d3e', '1102077', '68')
 
-if __name__=="__main__":
-    comment(u'真心是好东西', '5e76493c-a698-48a6-8382-6e994fd47d3e', '1102077', '68')
+
+class A(object):
+    def __init__(self,name):
+        self.name=name
+        print "xxxx"
+
+    def getName(self):
+        return 'A '+self.name
+
+    def getName1(self):
+        return 'B '+self.name
+
+
+class B(A):
+    def getName(self):
+        return 'B '+self.name
+
+# class C(A):
+#     def __init__(self):
+#         pass
+#     def getName(self):
+#         return 'C '+self.name
+
+class C(A):
+    def __init__(self,name):
+        super(C,self).__init__(name)
+    def getName(self):
+        return 'C '+self.name
+
+if __name=='__main__':
+    A('hello').getName()
+a=A('hello').getName()
+b=A('hello').getName1()
+
+print a
+print b
+
