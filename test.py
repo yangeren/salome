@@ -1,83 +1,115 @@
 #*--coding:utf-8--*
 __author__ = 'yer'
-import yaml
-import requests
 
-document = """
-  a: 1
-  b:
-    c: 3
-    d: 4
-"""
-# print yaml.dump(yaml.load(document))
+import requests, time, datetime
 
-# p = yaml.load(file('/home/hanz/PycharmProjects/salome/Flush/keyword.yml'))
-# a = p['soft']
-# b = p['member']
-# print b.items()
-# for m, n in b.items():
-#     print m
-#     print n
-# print a
-# print b
-# print a.items()
-# for x,y in a.items():
-#     print x,y
+# while True:
+#     url = 'http://www.zhongguosyzs.com/channel/14023972'
+#     res = requests.get(url)
+#     print res.content
+#     print res.url
+#     print res
+#     time.sleep(15)
 
-# def comment(content, token, id, interest_id):
-#     pl_url = 'http://api2.souyue.mobi/d3api2/interest/blog.save.groovy?vc=4.0.2'
-#     data = {
-#         "blog_id": "0",
-#         "content": content,
-#         "mblog_id": id,
-#         "token": token,
-#         "user_ids": "",
-#         "interest_id": interest_id,
-#         "title": ""
-#     }
-#     headers = {'User-Agent': '中搜搜悦 4.0.2 (iPhone; iPhone OS 8.1; zh_CN)'}
-#     print data
-#     # pl = requests.post(pl_url, data=data, headers=headers)
-#     pl = requests.get(pl_url, params=data)
-#     print pl.content
+# print datetime.timedelta()
+# print datetime.struct_time()
+
+# house = 3000000
+# week = 30000
+# month = 4
+# year = 10
+# money = week * month * year
 #
-# if __name__=="__main__":
-#     comment(u'真心是好东西', '5e76493c-a698-48a6-8382-6e994fd47d3e', '1102077', '68')
+# print money
+# print house/money
+"""
+data='''A|100
+A|400
+A|500
+A|800
+B|700
+B|100
+B|300
+'''
 
+last_line_one=''
+list_tmp=[]
+for line in data.strip().split('\n'):
+    # print line
+    line_list=line.split('|')   #各行的列表
+    # print line_list
+    line_one=line_list[0]   #得到每行的第一项
+    # print line_one
+    line_two=line_list[1]   #得到每行的第二项
+    list_tmp.insert(0,line_two)        #生成一个临时列表
+    # print line_one,last_line_one,'=?'
+    if line_one == last_line_one:
 
-class A(object):
-    def __init__(self,name):
-        self.name=name
-        print "xxxx"
+        print list_tmp
 
-    def getName(self):
-        return 'A '+self.name
+    else:
+        print
+        list_tmp=[]
+    last_line_one=line_one
+"""
 
-    def getName1(self):
-        return 'B '+self.name
+"""
+def func1(arg1):
+    arg1[0] = 12
+    return arg1
 
+test = [1,2,3,4]
+test1 = (1,2,3,4)
+print test
+print func1(test)
+print test1
+print func1(test1)
+"""
 
-class B(A):
-    def getName(self):
-        return 'B '+self.name
+"""
+2 用位置匹配，关键字匹配，收集匹配(元组收集,字典收集)分别写4个函数，完成功能；
 
-# class C(A):
-#     def __init__(self):
-#         pass
-#     def getName(self):
-#         return 'C '+self.name
+传递3个列表参数：
 
-class C(A):
-    def __init__(self,name):
-        super(C,self).__init__(name)
-    def getName(self):
-        return 'C '+self.name
+[1,2,3],[1,5,65],[33,445,22]
 
-if __name=='__main__':
-    A('hello').getName()
-a=A('hello').getName()
-b=A('hello').getName1()
+返回这3个列表中元素最大的那个，结果是：445
+"""
 
-print a
+def func1(arg1,arg2,arg3):
+    a = []
+    if isinstance(arg1,list) and isinstance(arg2, list) and isinstance(arg3, list):
+        a = arg1 + arg2 + arg3
+        # return max(a) #关键字匹配
+        return sorted(a)[-1] #位置匹配
+    else:
+        return 'error'
+
+print func1([1,2,3],[1,5,65],[33,445,22])
+
+"""
+3 递归函数解释，用自己的话说明这个递归函数的工作流程。
+
+def func1(i):
+    if i<100:
+        return i + func1(i+1)
+    return i
+print func1(0)
+"""
+#返回0-99的合
+def func1(i):
+    if i<100:
+        return i + func1(i+1)
+    return i
+print func1(0)
+
+b =0
+for i in xrange(100):
+    print i 
+    b += i
+
 print b
+g = lambda m:[i for i in xrange(10)]
+print g(10)
 
+print filter([1,2,3,4,5])

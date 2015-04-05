@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidTestScripts/.idea/AndroidTestScripts.iml" filepath="$PROJECT_DIR$/AndroidTestScripts/.idea/AndroidTestScripts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../App_AutoTest/.idea/App_AutoTest.iml" filepath="$PROJECT_DIR$/../App_AutoTest/.idea/App_AutoTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Hanna/.idea/Hanna.iml" filepath="$PROJECT_DIR$/../Hanna/.idea/Hanna.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/My_site/.idea/My_site.iml" filepath="$USER_HOME$/PycharmProjects/My_site/.idea/My_site.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../autotest/.idea/autotest.iml" filepath="$PROJECT_DIR$/../autotest/.idea/autotest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../django-bootstrap-toolkit/.idea/django-bootstrap-toolkit.iml" filepath="$PROJECT_DIR$/../django-bootstrap-toolkit/.idea/django-bootstrap-toolkit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../kunlunmall/.idea/kunlunmall.iml" filepath="$PROJECT_DIR$/../kunlunmall/.idea/kunlunmall.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/salome.iml" filepath="$PROJECT_DIR$/.idea/salome.iml" />
     </modules>
   </component>
 </project>
-

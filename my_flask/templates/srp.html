@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<style>
+			.tb .tb-tr .tb-td{border-collapse:collapse;border:solid#000 1px;}
+</style>
+    <tbody>
+    <tr class="tb-tr">
+            <!--{{ text['body'] }}-->
+            {% for x in text['body'] %}
+            {{ x['url']|capitalize }}<br />
+            {% endfor %}
+        </tr>
+    </tbody>
+</body>
+</html>

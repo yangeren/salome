@@ -20,7 +20,7 @@ class Login(object):
         username = res[user]['username']
         password = res[user]['password']
         xuanchuantu = res['road']['xuanchuantu']
-        print username,password
+        print username, password
         return login_url, username, password, xuanchuantu
 
     def login(self, url, username, password):

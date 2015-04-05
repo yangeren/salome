@@ -1,15 +1,15 @@
 __author__ = 'hanz'
-#*-- coding=utf-8 --*
+# coding=utf-8
 import login
 import time
 from selenium import webdriver
 
 class Add_yyxx():
-    # def __init__(self):
-    #     self.dr = webdriver.PhantomJS('phantomjs')
+    def __init__(self):
+        self.dr = webdriver.PhantomJS('phantomjs')
 
     def add_yyxx(self,img):
-        self.dr.find_elements_by_class_name('btn-search')[1].click() #进入新建预约页
+        self.dr.find_elements_by_class_name('btn-search')[1].click()
         self.dr.find_element_by_id('fileToUpload1').send_keys(img)
         self.dr.find_element_by_class_name('btn-confirm2').click()
         self.dr.find_element_by_name('title').click()

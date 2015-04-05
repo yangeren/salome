@@ -15,7 +15,10 @@ member:
     testc: 111111
     whtest: 111111
 keyword:
-    作家俱乐部
+    装饰网
+    吸音
+#    作家俱乐部
+#    电机行业
 #    小兔子乖乖
 #    丛莱绿茶
 #    这个行业我专用
@@ -133,7 +136,7 @@ url:
 #            http://103.29.134.109/np/ipfresh?st=update
     needflush:
 #        www.clgt.com
-#        www.chinaqlw.com
+        www.chinaqlw.com
 #        www.hljshangdao.cn
 #        www.zypco.com
 #        www.rafscl.com
@@ -211,4 +214,11 @@ url:
 #        www.xshlmj.com
 #        www.huadongheb.com
 #        www.chinalhtx.com
-        www.zjjlb.net
+#        www.zjjlb.net
+#        www.xn--114-r49f403d.com
+#        www.dianji114.com
+#        www.beng114.cn
+#        www.dianji114.cn
+#        www.ycbengye.com
+#        www.jidian-1.com
+#        www.jidian-1.net
