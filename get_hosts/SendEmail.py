@@ -3,7 +3,7 @@ __author__ = 'Hanz'
 import smtplib
 from email.mime.text import MIMEText
 
-def send_mail(sender='wanghantest@163.com', password='zhongsou',
+def send_mail(sender='wanghantest@163.com', password='',
               receiver='wanghan@zhongsou.com', content='', smtpserver = 'smtp.163.com',
               subject='Error'):
 	username = sender
